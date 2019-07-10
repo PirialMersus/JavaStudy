@@ -1,4 +1,5 @@
 //0822
+package task08.task0822;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 /*
 Минимальное из N чисел
@@ -19,12 +21,23 @@ public class Solution {
 
     public static int getMinimum(List<Integer> array) {
         // Найти минимум тут
-        return 0;
+        int min = array.get(0);
+        for (int i = 0; i < array.size(); i++){
+            if (min > array.get(i))
+                min = array.get(i);
+        }
+        return min;
     }
 
     public static List<Integer> getIntegerList() throws IOException {
         // Создать и заполнить список тут
-        return null;
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            numbers.add(scanner.nextInt());
+        }
+        return numbers;
     }
 }
 /*
