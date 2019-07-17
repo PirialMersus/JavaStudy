@@ -1,17 +1,43 @@
 package task10.task1020;
 
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /*
-Правильный ответ: d = 5.5
-Добавить одну операцию по преобразованию типа, чтобы получался ответ: d = 5.5
+Задача по алгоритмам
+Задача: ввести с клавиатуры 30 чисел. Вывести 10-е и 11-е минимальные числа.
+Пояснение:
+Самое минимальное число - 1-е минимальное.
+Следующее минимальное после него - 2-е минимальное
 */
 
 public class Solution {
-    public static void main(String[] args) {
-        int a = 5;
-        int b = 4;
-        int c = 3;
-        int e = 2;
-        double d = a + (double)(b / c / e);
-        System.out.println(d);
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int[] array = new int[30];
+        for (int i = 0; i < 30; i++) {
+            array[i] = Integer.parseInt(reader.readLine());
+        }
+
+        sort(array);
+
+        System.out.println(array[9]);
+        System.out.println(array[10]);
+    }
+
+    public static void sort(int[] array) {
+        //напишите тут ваш код
+        int tempValue;
+        for (int j = 0; j<array.length; j++) {
+            for (int i = 0; i < array.length - 1 - j; i++) {
+                if (array[i] > array[i + 1]) {
+                    tempValue = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = tempValue;
+                }
+            }
+        }
+
     }
 }

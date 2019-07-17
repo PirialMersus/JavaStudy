@@ -34,6 +34,15 @@ public class Solution {
 
     public static Map<String, Integer> countWords(ArrayList<String> list) {
         HashMap<String, Integer> result = new HashMap<String, Integer>();
+        for (int i = 0; i < list.size(); i++) {
+            if (result.containsKey(list.get(i)))
+
+                result.put(list.get(i),result.get(list.get(i))+1);
+            else result.put(list.get(i),1);
+        }
+
+
+
         
 
         //напишите тут ваш код

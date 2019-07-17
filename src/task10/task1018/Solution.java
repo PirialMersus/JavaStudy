@@ -1,22 +1,40 @@
 package task10.task1018;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
 /*
-Задача №7 на преобразование целых типов
-Убери ненужные операторы приведения типа, чтобы получился ответ: 1234567
-long l = (byte)1234_564_890L;
-int x = (byte)0b1000_1100_1010;
-double m = (byte)110_987_654_6299.123_34;
-float f = (byte)l++ + 10 + ++x - (float)m;
-l = (long) f / 1000;
+Поправочки нужны
+Задача: Программа демонстрирует работу HashMap: вводит с клавиатуры набор пар (номер и строку), помещает их в HashMap и выводит на экран содержимое HashMap.
 */
 
 public class Solution {
-    public static void main(String[] args) {
-        long l =  1234_564_890L;
-        int x = 0b1000_1100_1010;
-        double m = (byte) 110_987_654_6299.123_34;
-        float f = l++ + 10 + ++x - (float) m;
-        l = (long) f / 1000;
-        System.out.println(l);
+    HashMap<Integer, String> map;
+    static Integer index;
+    static String name;
+
+    public Solution() {
+        this.map = new HashMap<Integer, String>();
+        map.put(index, name);
+    }
+
+    public static void main(String[] args) throws IOException {
+        Solution solution = new Solution();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        for (int i = 0; i < 10; i++) {
+            int index = Integer.parseInt(reader.readLine());
+            String name = reader.readLine();
+            solution.map.put(index, name);
+        }
+
+        for (Map.Entry<Integer, String> pair : solution.map.entrySet()) {
+            index = pair.getKey();
+            name = pair.getValue();
+            System.out.println("Id=" + index + " Name=" + name);
+        }
     }
 }
